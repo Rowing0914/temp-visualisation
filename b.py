@@ -33,6 +33,7 @@ plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="circles.jpg")
 # plot_curves([mobius(c, 2, 0, 0, 1) for c in circles], fname="circles-scaled.jpg")
 
 # rotate by a degree in radian
+# Ref: Example 3.6 of http://www.warwickmaths.com/wp-content/uploads/2020/07/80_-M%C3%B6bius-Transformations.pdf
 R = 1
 for _theta in range(0, 361, 45):
     __theta = np.radians(_theta)
