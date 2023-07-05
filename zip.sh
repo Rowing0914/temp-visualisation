@@ -1,0 +1,1 @@
+zip -r images.zip ./images

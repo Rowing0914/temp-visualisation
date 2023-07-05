@@ -13,7 +13,7 @@
 #     (-2.0, +2.0, 400),
 #     (-2.0, +2.0, 400),
 # )
-# plt.savefig("c.jpg")
+# plt.savefig("./images/c.jpg")
 
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D  # don't move this
@@ -35,4 +35,4 @@ surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.coolwarm, linewidt
 fig.colorbar(surf, shrink=0.5, aspect=5)
 ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("z")
 
-plt.savefig("surface.jpg")
+plt.savefig("./images/surface.jpg")

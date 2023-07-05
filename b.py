@@ -12,7 +12,7 @@ def circle(radius, center):
     theta = linspace(0, 2 * pi, 200)
     return center + radius * exp(1j * theta)
 
-def plot_curves(curves, sing_pt=None, fname="a.jpg"):
+def plot_curves(curves, sing_pt=None, fname="./images/a.jpg"):
     for i, c in enumerate(curves):
         plt.plot(c.real, c.imag, color=sns_colors[i], label=f"{i}")
         plt.scatter(c.real[0], c.imag[0], color=sns_colors[i], marker="^")
@@ -29,8 +29,8 @@ def mobius(z, a, b, c, d):
 
 # # scale circles
 # circles = [circle(1, 0), circle(2, 0), circle(2, 6)]
-# plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="circles.jpg")
-# plot_curves([mobius(c, 2, 0, 0, 1) for c in circles], fname="circles-scaled.jpg")
+# plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="./images/circles.jpg")
+# plot_curves([mobius(c, 2, 0, 0, 1) for c in circles], fname="./images/circles-scaled.jpg")
 
 # # rotate by a degree in radian
 # # Ref: Example 3.6 of http://www.warwickmaths.com/wp-content/uploads/2020/07/80_-M%C3%B6bius-Transformations.pdf
@@ -38,24 +38,24 @@ def mobius(z, a, b, c, d):
 # for _theta in range(0, 361, 45):
 #     __theta = np.radians(_theta)
 #     a = R * np.exp(eval(f"{__theta}j"))
-#     plot_curves([mobius(c, a, 0, 0, 1) for c in circles], fname=f"circles-rotate{_theta}.jpg")
+#     plot_curves([mobius(c, a, 0, 0, 1) for c in circles], fname=f"./images/circles-rotate{_theta}.jpg")
 
 # Inversion of circles
-plot_curves([mobius(c, 0, 1, 1, 0) for c in circles], fname="circles-inv.jpg")
+plot_curves([mobius(c, 0, 1, 1, 0) for c in circles], fname="./images/circles-inv.jpg")
 
 # circle to circle
-plot_curves([mobius(c, 1, 2, 3, 4) for c in circles], fname="circles-transformed.jpg")
+plot_curves([mobius(c, 1, 2, 3, 4) for c in circles], fname="./images/circles-transformed.jpg")
 
 # line to line
 line = linspace(-100, 100, 600)
 curves = [line, 1j * line - 4/3]
-plot_curves(curves, fname="lines.jpg")
-plot_curves([mobius(c, 1, 2, 3, 4) for c in curves], fname="lines-transformed.jpg")
+plot_curves(curves, fname="./images/lines.jpg")
+plot_curves([mobius(c, 1, 2, 3, 4) for c in curves], fname="./images/lines-transformed.jpg")
 
 # line to circle
 lines = [1j * line - 4, 1j * line + 4, line - 4j, line + 4j]
-plot_curves(lines, fname="line-to-circle.jpg")
-plot_curves([mobius(c, 1, 2, 3, 4) for c in lines], fname="line-to-circle-transformed.jpg")
+plot_curves(lines, fname="./images/line-to-circle.jpg")
+plot_curves([mobius(c, 1, 2, 3, 4) for c in lines], fname="./images/line-to-circle-transformed.jpg")
 
 # Face
 dash = linspace(0.60, 0.90, 20)
@@ -63,7 +63,7 @@ smile = 0.3*exp(1j*2*pi*dash) - 0.2j
 left_eye  = circle(0.1, -0.4+.2j)
 right_eye = circle(0.1,  0.4+.2j)
 face = [circle(1, 0), left_eye, smile, right_eye]
-plot_curves(face, fname="face.jpg")
-plot_curves([mobius(c, 1, 0, 1, -1 + 1j) for c in face], fname="face-transformed-1.jpg")
-plot_curves([mobius(c, 1, 0, 3, 1) for c in face], fname="face-transformed-2.jpg")
-plot_curves([mobius(c, 1, 0, 1, 0.4-0.2j) for c in face], fname="face-transformed-3.jpg")
+plot_curves(face, fname="./images/face.jpg")
+plot_curves([mobius(c, 1, 0, 1, -1 + 1j) for c in face], fname="./images/face-transformed-1.jpg")
+plot_curves([mobius(c, 1, 0, 3, 1) for c in face], fname="./images/face-transformed-2.jpg")
+plot_curves([mobius(c, 1, 0, 1, 0.4-0.2j) for c in face], fname="./images/face-transformed-3.jpg")
