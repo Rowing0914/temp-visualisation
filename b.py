@@ -27,22 +27,23 @@ def plot_curves(curves, sing_pt=None, fname="a.jpg"):
 def mobius(z, a, b, c, d):
     return (a * z + b)/(c * z + d)
 
-# scale circles
-circles = [circle(1, 0), circle(2, 0), circle(2, 6)]
-plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="circles.jpg")
+# # scale circles
+# circles = [circle(1, 0), circle(2, 0), circle(2, 6)]
+# plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="circles.jpg")
 # plot_curves([mobius(c, 2, 0, 0, 1) for c in circles], fname="circles-scaled.jpg")
 
-# rotate by a degree in radian
-# Ref: Example 3.6 of http://www.warwickmaths.com/wp-content/uploads/2020/07/80_-M%C3%B6bius-Transformations.pdf
-R = 1
-for _theta in range(0, 361, 45):
-    __theta = np.radians(_theta)
-    a = R * np.exp(eval(f"{__theta}j"))
-    plot_curves([mobius(c, a, 0, 0, 1) for c in circles], fname=f"circles-rotate{_theta}.jpg")
+# # rotate by a degree in radian
+# # Ref: Example 3.6 of http://www.warwickmaths.com/wp-content/uploads/2020/07/80_-M%C3%B6bius-Transformations.pdf
+# R = 1
+# for _theta in range(0, 361, 45):
+#     __theta = np.radians(_theta)
+#     a = R * np.exp(eval(f"{__theta}j"))
+#     plot_curves([mobius(c, a, 0, 0, 1) for c in circles], fname=f"circles-rotate{_theta}.jpg")
+
+# Inversion of circles
+plot_curves([mobius(c, 0, 1, 1, 0) for c in circles], fname="circles-inv.jpg")
 
 # circle to circle
-circles = [circle(1, 0), circle(2, 0), circle(2, 6)]
-# plot_curves(circles, sing_pt=-4/3 + 0.0j, fname="circles.jpg")
 plot_curves([mobius(c, 1, 2, 3, 4) for c in circles], fname="circles-transformed.jpg")
 
 # line to line
